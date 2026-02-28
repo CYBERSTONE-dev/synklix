@@ -1,0 +1,441 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Premium Brand Redesign — Synklix Professional Store Overhaul",
+  "requirements": [
+    {
+      "id": "REQ-60",
+      "summary": "Update HeroBanner component with new headline and subheadline while preserving existing styling and CTAs",
+      "acceptanceCriteria": [
+        "HeroBanner displays headline 'Smart Finds for Smarter Living'",
+        "HeroBanner displays subheadline 'Premium Trending Products at Affordable Prices'",
+        "CTA buttons, trust badges, and color scheme are unchanged"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/HeroBanner.tsx",
+          "operation": "modify",
+          "description": "Update the headline text to 'Smart Finds for Smarter Living' and subheadline to 'Premium Trending Products at Affordable Prices'. Keep all existing CTA buttons ('Shop Now' filled #4DA6FF, 'Explore Deals' outlined), trust micro-badges (Pan India Delivery, Secure Payments, Easy Returns), Poppins font, and #4DA6FF / #111111 color scheme unchanged."
+        }
+      ]
+    },
+    {
+      "id": "REQ-61",
+      "summary": "Update AnnouncementBar to display new prepaid offer message",
+      "acceptanceCriteria": [
+        "AnnouncementBar displays '🎁 Get ₹100 OFF on Prepaid Orders – Use Code: PAY100'",
+        "#4DA6FF background and white bold text retained",
+        "Dismiss button still functional"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/AnnouncementBar.tsx",
+          "operation": "modify",
+          "description": "Update the announcement text to '🎁 Get ₹100 OFF on Prepaid Orders – Use Code: PAY100'. Keep the existing #4DA6FF background, white bold text, slim py-2 layout, and dismiss button functionality intact."
+        }
+      ]
+    },
+    {
+      "id": "REQ-62",
+      "summary": "Update FeatureStrip trust icon section to display four new trust pillars with icons and descriptors",
+      "acceptanceCriteria": [
+        "FeatureStrip shows exactly four pillars: Pan India Delivery, Secure Checkout, Cash on Delivery Available, 7-Day Replacement Guarantee",
+        "Each pillar has a #4DA6FF icon, bold title, and one-line descriptor",
+        "#F8F8F8 background maintained, 2x2 grid on mobile"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/FeatureStrip.tsx",
+          "operation": "modify",
+          "description": "Update the four trust pillars to: (1) Pan India Delivery with map/location icon, (2) Secure Checkout with lock icon, (3) Cash on Delivery Available with cash/wallet icon, (4) 7-Day Replacement Guarantee with refresh/shield icon. Each pillar should have a large #4DA6FF icon, bold label, and a one-line descriptor. Maintain the existing #F8F8F8 background and horizontal row layout that becomes 2x2 grid on mobile."
+        }
+      ]
+    },
+    {
+      "id": "REQ-63",
+      "summary": "Add New Arrivals product section to homepage after Featured Products",
+      "acceptanceCriteria": [
+        "New Arrivals section appears on the homepage after Featured Products",
+        "Displays 4 mock products using ProductCard",
+        "4-column desktop / 2-column mobile grid layout",
+        "Section heading and View All link to /shop present"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/NewArrivals.tsx",
+          "operation": "create",
+          "description": "Create a NewArrivals component that displays 4 products from the existing mock products data in a 4-column desktop / 2-column mobile grid using the existing ProductCard component. Include a section heading 'New Arrivals' with a subtitle below in text-gray-500. Add a 'View All' link that navigates to /shop. Apply py-20 on desktop and py-12 on mobile padding, use font-bold text-3xl md:text-4xl text-[#111111] for heading with a short #4DA6FF underline accent, and ensure the layout matches the premium redesign requirements from REQ-68."
+        },
+        {
+          "path": "frontend/src/pages/Home.tsx",
+          "operation": "modify",
+          "description": "Import the new NewArrivals component and add it to the homepage layout after the FeaturedProducts section and before the WhyChooseSynklix section, ensuring the correct section order per REQ-69."
+        }
+      ]
+    },
+    {
+      "id": "REQ-64",
+      "summary": "Add Trending Now product section to homepage after New Arrivals",
+      "acceptanceCriteria": [
+        "Trending Now section appears after New Arrivals on the homepage",
+        "Displays 4 different mock products using ProductCard",
+        "4-column desktop / 2-column mobile grid layout",
+        "Section heading, subtitle, and View All link present"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/TrendingNow.tsx",
+          "operation": "create",
+          "description": "Create a TrendingNow component that displays 4 products from the existing mock products data (different selection from New Arrivals) using ProductCard in a 4-column desktop / 2-column mobile grid. Include a section heading 'Trending Now' with a subtitle in text-gray-500. Add a 'View All' link to /shop. Apply py-20 desktop / py-12 mobile padding, use font-bold text-3xl md:text-4xl text-[#111111] for heading with a short #4DA6FF underline accent, and match the premium redesign styling from REQ-68."
+        },
+        {
+          "path": "frontend/src/pages/Home.tsx",
+          "operation": "modify",
+          "description": "Import the new TrendingNow component and add it to the homepage layout after the WhyChooseSynklix section and before the LimitedTimeOffer section, following the section order specified in REQ-69."
+        }
+      ]
+    },
+    {
+      "id": "REQ-65",
+      "summary": "Add bundle offer section to Product Detail page with two discount tiers",
+      "acceptanceCriteria": [
+        "Bundle section appears on Product Detail page below Buy Now button",
+        "Two tiers shown: Buy 2 Get 10% OFF and Buy 3 Get 20% OFF",
+        "Each tier shows discounted price calculation",
+        "CTA buttons add correct quantity to cart",
+        "Uses #4DA6FF accents and rounded-xl cards"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/BundleOffers.tsx",
+          "operation": "create",
+          "description": "Create a BundleOffers component that displays two bundle tiers as visually distinct rounded-xl cards: 'Buy 2 & Get 10% OFF' and 'Buy 3 & Get 20% OFF'. Each tier should show the original per-unit price, the discounted total with calculation, and a CTA button ('Add 2 to Cart' / 'Add 3 to Cart') that uses the addToCart function from CartContext to add the respective quantity of the current product. Use #4DA6FF accents and ensure the component accepts productId and price as props."
+        },
+        {
+          "path": "frontend/src/pages/ProductDetail.tsx",
+          "operation": "modify",
+          "description": "Import the new BundleOffers component and render it on the Product Detail page below the Add to Cart / Buy Now buttons and above the existing ComboOffer section. Pass the current product's id and price as props to the BundleOffers component."
+        }
+      ]
+    },
+    {
+      "id": "REQ-66",
+      "summary": "Add prepaid conversion popup that triggers on cart add or after delay on Product Detail page",
+      "acceptanceCriteria": [
+        "Popup appears on Product Detail page after 10 seconds or on cart add action if not dismissed",
+        "Headline reads 'Complete Payment Online & Get Extra ₹100 OFF 🎁'",
+        "Two CTAs present: Pay Online & Save and Continue with COD",
+        "Shown only once per session via sessionStorage",
+        "Dismissible with Continue with COD link"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/PrepaidConversionPopup.tsx",
+          "operation": "create",
+          "description": "Create a PrepaidConversionPopup component that displays a modal overlay with headline 'Complete Payment Online & Get Extra ₹100 OFF 🎁' and subtext 'Prepaid orders get faster dispatch, free shipping, and an instant ₹100 discount. Pay online and save more!'. Include two CTAs: a filled #4DA6FF button 'Pay Online & Save' that navigates to /shop, and a text link 'Continue with COD' that dismisses the popup. Use sessionStorage with key 'prepaidPopupDismissed' to show only once per session. The component should accept a visible prop and onClose callback."
+        },
+        {
+          "path": "frontend/src/pages/ProductDetail.tsx",
+          "operation": "modify",
+          "description": "Import PrepaidConversionPopup component and add state to control its visibility. Implement logic to show the popup after 10 seconds on mount (using useEffect with setTimeout) or when a COD item is added to cart. Check sessionStorage at mount to prevent showing if already dismissed this session. Render the PrepaidConversionPopup component with appropriate visible state and onClose handler that sets sessionStorage and closes the popup."
+        }
+      ]
+    },
+    {
+      "id": "REQ-67",
+      "summary": "Add checkout nudge messages on Product Detail page and in CartDrawer",
+      "acceptanceCriteria": [
+        "Three checkout nudge lines displayed on Product Detail page",
+        "Same nudges shown in CartDrawer",
+        "Light blue (#E8F4FF) background with #4DA6FF accents",
+        "Text is legible and compact using Poppins font"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/CheckoutNudges.tsx",
+          "operation": "create",
+          "description": "Create a CheckoutNudges component that displays three nudge lines: '⚡ Prepaid Orders Get Faster Delivery', '🚫 Avoid COD Verification Delay – Pay Online', '✅ Instant Order Confirmation with Online Payment'. Style as a compact info block with light blue (#E8F4FF) background, small Poppins text, and #4DA6FF icon accents for the emoji/icons. Make the component reusable with no required props."
+        },
+        {
+          "path": "frontend/src/pages/ProductDetail.tsx",
+          "operation": "modify",
+          "description": "Import CheckoutNudges component and render it on the Product Detail page below the BundleOffers section (which is below the Buy Now buttons)."
+        },
+        {
+          "path": "frontend/src/components/CartDrawer.tsx",
+          "operation": "modify",
+          "description": "Import CheckoutNudges component and render it in the CartDrawer below the existing RTO reduction message section."
+        }
+      ]
+    },
+    {
+      "id": "REQ-68",
+      "summary": "Perform comprehensive premium brand redesign across all pages and components to eliminate template appearance",
+      "acceptanceCriteria": [
+        "All homepage sections have py-20 desktop / py-12 mobile padding",
+        "Section headings use bold 3xl-4xl typography with #4DA6FF underline accent",
+        "All product cards have rounded-xl, subtle border, white background, and hover shadow",
+        "All primary CTA buttons use rounded-full",
+        "No gradients or off-brand colors visible anywhere",
+        "Page containers have generous horizontal padding (px-6 md:px-12 lg:px-20)",
+        "Section headers are left-aligned with gray subtitle below"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ProductCard.tsx",
+          "operation": "modify",
+          "description": "Update ProductCard styling to use rounded-xl border radius, add a subtle 1px border (#E5E5E5), white background, and apply hover box-shadow of '0 8px 24px rgba(0,0,0,0.10)'. Ensure product names use font-semibold, prices use font-bold, and descriptors use text-sm text-gray-500 for improved visual hierarchy. Update the Add to Cart button to use rounded-full."
+        },
+        {
+          "path": "frontend/src/components/FeaturedProducts.tsx",
+          "operation": "modify",
+          "description": "Apply section vertical padding of py-20 on desktop and py-12 on mobile. Update section heading to use font-bold text-3xl md:text-4xl text-[#111111] with a short colored underline accent in #4DA6FF below the heading text. Ensure subtitle uses text-gray-500 and is left-aligned. Add generous horizontal padding (px-6 md:px-12 lg:px-20) to the section container."
+        },
+        {
+          "path": "frontend/src/components/BestSellers.tsx",
+          "operation": "modify",
+          "description": "Apply py-20 desktop / py-12 mobile padding. Update section heading to font-bold text-3xl md:text-4xl text-[#111111] with #4DA6FF underline accent. Ensure left-aligned heading with gray subtitle below. Add px-6 md:px-12 lg:px-20 horizontal padding. Update Shop All CTA to use rounded-full."
+        },
+        {
+          "path": "frontend/src/components/PrepaidStrategySection.tsx",
+          "operation": "modify",
+          "description": "Apply py-20 desktop / py-12 mobile padding. Update section heading to font-bold text-3xl md:text-4xl text-[#111111] with #4DA6FF underline accent. Ensure left-aligned heading with text-gray-500 subtitle. Add px-6 md:px-12 lg:px-20 horizontal padding to container. Update any CTA buttons to rounded-full. Audit and remove any gradients or off-brand colors."
+        },
+        {
+          "path": "frontend/src/components/WhyChooseSynklix.tsx",
+          "operation": "modify",
+          "description": "Apply py-20 desktop / py-12 mobile section padding. Update section heading to font-bold text-3xl md:text-4xl text-[#111111] with #4DA6FF underline accent. Left-align heading with text-gray-500 subtitle below. Add px-6 md:px-12 lg:px-20 horizontal padding. Ensure value-proposition cards use rounded-xl. Remove any gradients or heavy shadows."
+        },
+        {
+          "path": "frontend/src/components/LimitedTimeOffer.tsx",
+          "operation": "modify",
+          "description": "Apply py-20 desktop / py-12 mobile padding. Update section heading to font-bold text-3xl md:text-4xl text-[#111111] with #4DA6FF underline accent. Left-align with gray subtitle. Add px-6 md:px-12 lg:px-20 horizontal padding. Update the shop CTA button to rounded-full. Audit offer banner cards for rounded-xl and remove any gradients."
+        },
+        {
+          "path": "frontend/src/components/Testimonials.tsx",
+          "operation": "modify",
+          "description": "Apply py-20 desktop / py-12 mobile padding. Update section heading to font-bold text-3xl md:text-4xl text-[#111111] with #4DA6FF underline accent. Left-align heading with text-gray-500 subtitle. Add px-6 md:px-12 lg:px-20 horizontal padding. Ensure testimonial cards use rounded-xl and remove any gradients or heavy shadows."
+        },
+        {
+          "path": "frontend/src/components/TrustBadges.tsx",
+          "operation": "modify",
+          "description": "Apply py-20 desktop / py-12 mobile padding. Update section heading to font-bold text-3xl md:text-4xl text-[#111111] with #4DA6FF underline accent if heading exists. Left-align with gray subtitle. Add px-6 md:px-12 lg:px-20 horizontal padding. Ensure badge cards use rounded-xl. Remove gradients."
+        },
+        {
+          "path": "frontend/src/components/PrepaidBanner.tsx",
+          "operation": "modify",
+          "description": "Apply py-20 desktop / py-12 mobile padding to the section. Update heading to font-bold text-3xl md:text-4xl text-[#111111] with #4DA6FF underline accent. Left-align heading with text-gray-500 subtitle. Add px-6 md:px-12 lg:px-20 horizontal padding. Update shop CTA button to rounded-full. Remove gradients or off-brand colors."
+        },
+        {
+          "path": "frontend/src/components/Newsletter.tsx",
+          "operation": "modify",
+          "description": "Apply py-20 desktop / py-12 mobile padding. Update section heading to font-bold text-3xl md:text-4xl with #4DA6FF underline accent (adjust text color for contrast if on blue background). Ensure left-alignment with subtitle below. Add px-6 md:px-12 lg:px-20 horizontal padding. Update submit button to rounded-full."
+        },
+        {
+          "path": "frontend/src/components/HeroBanner.tsx",
+          "operation": "modify",
+          "description": "Apply py-20 desktop / py-12 mobile padding to the hero section. Update both CTA buttons to use rounded-full border radius. Ensure generous horizontal padding (px-6 md:px-12 lg:px-20) to the container. Verify no gradients are present and all colors match #4DA6FF / #111111 / #FFFFFF palette."
+        },
+        {
+          "path": "frontend/src/pages/About.tsx",
+          "operation": "modify",
+          "description": "Add px-6 md:px-12 lg:px-20 horizontal padding to the page container. Update page heading to font-bold text-3xl md:text-4xl text-[#111111] with #4DA6FF underline accent. Left-align with gray subtitle. Apply py-20 desktop / py-12 mobile padding to sections. Update CTA button to rounded-full."
+        },
+        {
+          "path": "frontend/src/pages/Contact.tsx",
+          "operation": "modify",
+          "description": "Add px-6 md:px-12 lg:px-20 horizontal padding to the page container. Update page heading to font-bold text-3xl md:text-4xl text-[#111111] with #4DA6FF underline accent. Apply py-20 desktop / py-12 mobile padding. Update submit button to rounded-full."
+        },
+        {
+          "path": "frontend/src/pages/Shop.tsx",
+          "operation": "modify",
+          "description": "Add px-6 md:px-12 lg:px-20 horizontal padding to the page container. Update page heading to font-bold text-3xl md:text-4xl text-[#111111] with #4DA6FF underline accent. Apply py-20 desktop / py-12 mobile padding. Verify ProductCard components render with the updated rounded-xl, border, and hover shadow styles."
+        },
+        {
+          "path": "frontend/src/pages/ProductDetail.tsx",
+          "operation": "modify",
+          "description": "Add px-6 md:px-12 lg:px-20 horizontal padding to the page container. Apply py-20 desktop / py-12 mobile padding to sections. Update all primary CTA buttons (Add to Cart, Buy Now) to use rounded-full. Ensure product name uses font-semibold, price uses font-bold, and descriptors use text-sm text-gray-500."
+        },
+        {
+          "path": "frontend/src/pages/FAQ.tsx",
+          "operation": "modify",
+          "description": "Add px-6 md:px-12 lg:px-20 horizontal padding to the page container. Update page heading to font-bold text-3xl md:text-4xl text-[#111111] with #4DA6FF underline accent. Apply py-20 desktop / py-12 mobile padding. Ensure accordion styling uses rounded-xl."
+        },
+        {
+          "path": "frontend/src/pages/PrivacyPolicy.tsx",
+          "operation": "modify",
+          "description": "Add px-6 md:px-12 lg:px-20 horizontal padding to the page container. Update page heading to font-bold text-3xl md:text-4xl text-[#111111] with #4DA6FF underline accent. Apply py-20 desktop / py-12 mobile padding. Audit for any off-brand colors or gradients."
+        },
+        {
+          "path": "frontend/src/pages/RefundPolicy.tsx",
+          "operation": "modify",
+          "description": "Add px-6 md:px-12 lg:px-20 horizontal padding to the page container. Update page heading to font-bold text-3xl md:text-4xl text-[#111111] with #4DA6FF underline accent. Apply py-20 desktop / py-12 mobile padding."
+        },
+        {
+          "path": "frontend/src/pages/ReturnPolicy.tsx",
+          "operation": "modify",
+          "description": "Add px-6 md:px-12 lg:px-20 horizontal padding to the page container. Update page heading to font-bold text-3xl md:text-4xl text-[#111111] with #4DA6FF underline accent. Apply py-20 desktop / py-12 mobile padding."
+        },
+        {
+          "path": "frontend/src/pages/ShippingPolicy.tsx",
+          "operation": "modify",
+          "description": "Add px-6 md:px-12 lg:px-20 horizontal padding to the page container. Update page heading to font-bold text-3xl md:text-4xl text-[#111111] with #4DA6FF underline accent. Apply py-20 desktop / py-12 mobile padding. Ensure info cards use rounded-xl."
+        },
+        {
+          "path": "frontend/src/pages/TermsAndConditions.tsx",
+          "operation": "modify",
+          "description": "Add px-6 md:px-12 lg:px-20 horizontal padding to the page container. Update page heading to font-bold text-3xl md:text-4xl text-[#111111] with #4DA6FF underline accent. Apply py-20 desktop / py-12 mobile padding."
+        }
+      ]
+    },
+    {
+      "id": "REQ-69",
+      "summary": "Update Home.tsx to include complete homepage section order without duplicates or missing sections",
+      "acceptanceCriteria": [
+        "Home.tsx renders all sections in the specified order",
+        "No sections are missing or duplicated",
+        "All imports are present and correctly referenced",
+        "Page renders without errors"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Home.tsx",
+          "operation": "modify",
+          "description": "Update Home.tsx to render sections in the exact order: AnnouncementBar, HeroBanner, FeatureStrip, PrepaidStrategySection, FeaturedProducts, NewArrivals, WhyChooseSynklix, TrendingNow, LimitedTimeOffer, BestSellers, Testimonials, TrustBadges, PrepaidBanner, Newsletter. Note: AnnouncementBar is rendered in Layout, not Home, so start with HeroBanner. Ensure all components are imported and no sections are duplicated or missing. Verify the page structure matches the BuildRequest ordering."
+        }
+      ]
+    },
+    {
+      "id": "REQ-70",
+      "summary": "Add Secure Payment Icons row and India-Wide Delivery Badge to homepage footer area above Newsletter",
+      "acceptanceCriteria": [
+        "Secure Payment Icons row shows UPI, Visa, Mastercard, PayPal, Net Banking icons with 'We Accept' label",
+        "India-Wide Delivery Badge shows map pin icon and delivery text",
+        "Both elements grouped in a compact full-width #F8F8F8 band on the homepage",
+        "Positioned above the Newsletter section"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/PaymentAndDeliveryBand.tsx",
+          "operation": "create",
+          "description": "Create a PaymentAndDeliveryBand component that displays two sub-sections in a full-width #F8F8F8 background band: (1) Secure Payment Icons row showing placeholder icons for UPI, Visa, Mastercard, PayPal, and Net Banking in a horizontal row with label 'We Accept', and (2) India-Wide Delivery Badge showing a map pin icon with text 'Delivering Across All 28 States & 8 UTs in India' styled with #4DA6FF accent. Group these in a compact horizontal layout on desktop and stack vertically on mobile. Apply py-12 padding."
+        },
+        {
+          "path": "frontend/src/pages/Home.tsx",
+          "operation": "modify",
+          "description": "Import the new PaymentAndDeliveryBand component and add it to the homepage layout after the PrepaidBanner section and before the Newsletter section, following the full section order from REQ-69."
+        }
+      ]
+    },
+    {
+      "id": "REQ-71",
+      "summary": "Update prepaid benefit box on Product Detail page with new content and styling",
+      "acceptanceCriteria": [
+        "Prepaid benefit box shows 'Pay Online & Get ₹100 OFF + Free Shipping 🎁' as headline",
+        "Four benefit lines with green checkmarks shown",
+        "Soft blue background with #4DA6FF left border styling applied",
+        "Positioned below the product price on Product Detail page"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/PrepaidBenefitsBox.tsx",
+          "operation": "modify",
+          "description": "Update the PrepaidBenefitsBox component to display headline 'Pay Online & Get ₹100 OFF + Free Shipping 🎁' at the top. Update the four benefit lines to: '✔ ₹100 Instant Discount', '✔ Free Shipping', '✔ Priority Dispatch', '✔ 10% Extra OFF on UPI/Cards'. Style with a soft blue (#E8F4FF) background, a #4DA6FF left border (4px), bold headline, and green checkmark icons. Keep the existing component pattern and ensure it's compact."
+        }
+      ]
+    },
+    {
+      "id": "REQ-72",
+      "summary": "Add COD confirmation note on Product Detail page below delivery time widget",
+      "acceptanceCriteria": [
+        "COD confirmation note shows the specified warning text",
+        "Styled with pale yellow background (#FFFBEB), rounded-lg border",
+        "Positioned below the delivery time widget on Product Detail page",
+        "⚠️ icon present"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/CODConfirmationNote.tsx",
+          "operation": "create",
+          "description": "Create a CODConfirmationNote component that displays: '⚠️ COD orders may require a confirmation call before dispatch. Prepaid orders are dispatched within 24–48 hours without any delay.' Style as a compact warning block with pale yellow (#FFFBEB) background, rounded-lg border, and small Poppins text. The component should be reusable with no required props."
+        },
+        {
+          "path": "frontend/src/pages/ProductDetail.tsx",
+          "operation": "modify",
+          "description": "Import the CODConfirmationNote component and render it on the Product Detail page below the DeliveryTimeWidget component."
+        }
+      ]
+    },
+    {
+      "id": "REQ-73",
+      "summary": "Update Footer component to include all policy links and Contact Us in correct columns",
+      "acceptanceCriteria": [
+        "Footer Policies column contains all six policy links",
+        "Contact Us present in Quick Links column",
+        "All links navigate to correct routes",
+        "Dark #111111 background and white text maintained",
+        "Newsletter signup, social icons, and payment icon row intact"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Footer.tsx",
+          "operation": "modify",
+          "description": "Update the Footer component Policies column to include links to all six policy pages: Return Policy (/return-policy), Privacy Policy (/privacy-policy), Terms & Conditions (/terms-and-conditions), Shipping Policy (/shipping-policy), Refund Policy (/refund-policy), and About Us (/about). Add Contact Us (/contact) prominently in the Quick Links column. Verify all links use correct routes and maintain the existing dark (#111111) background, white text, social icons, newsletter signup, and payment icon row styling."
+        }
+      ]
+    },
+    {
+      "id": "REQ-74",
+      "summary": "Apply mobile-first optimization across all pages for tap targets, padding, overlaps, and navigation",
+      "acceptanceCriteria": [
+        "All tap targets are at least 44px on mobile",
+        "All sections have minimum px-4 horizontal padding on mobile",
+        "No UI elements overlap incorrectly on mobile viewports",
+        "Body text is legible at mobile sizes",
+        "Hamburger menu opens/closes correctly and all nav links work"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Header.tsx",
+          "operation": "modify",
+          "description": "Verify all tap targets (navigation links, hamburger menu button, cart icon, search button) are at minimum 44px height/width on mobile. Ensure horizontal padding on mobile is at least px-4. Test that the hamburger menu drawer opens and closes correctly and all navigation links are accessible and functional."
+        },
+        {
+          "path": "frontend/src/components/Footer.tsx",
+          "operation": "modify",
+          "description": "Ensure all footer links have minimum 44px tap targets on mobile. Verify horizontal padding on mobile is at least px-4. Ensure body text is legible at mobile viewport sizes (minimum text-sm for body copy)."
+        },
+        {
+          "path": "frontend/src/components/MobileCartBar.tsx",
+          "operation": "modify",
+          "description": "Verify that the sticky MobileCartBar does not overlap with the floating COD Available tag, sticky PrepaidBanner (StickyPrepaidBanner), or any other fixed elements. Add appropriate bottom padding or adjust z-index stacking as needed. Ensure the Add to Cart button meets the 44px minimum tap target size."
+        },
+        {
+          "path": "frontend/src/components/StickyPrepaidBanner.tsx",
+          "operation": "modify",
+          "description": "Verify that the StickyPrepaidBanner does not overlap with MobileCartBar or other fixed UI elements on mobile. Adjust z-index and positioning if necessary. Ensure the dismiss button meets the 44px minimum tap target size."
+        },
+        {
+          "path": "frontend/src/components/ProductCard.tsx",
+          "operation": "modify",
+          "description": "Ensure the Add to Cart button meets the 44px minimum tap target size on mobile. Verify all text is legible at mobile sizes (minimum text-sm for body copy)."
+        },
+        {
+          "path": "frontend/src/pages/Home.tsx",
+          "operation": "modify",
+          "description": "Audit all homepage sections to ensure minimum px-4 horizontal padding on mobile (in addition to the px-6 md:px-12 lg:px-20 desktop padding from REQ-68). Verify no sections have overlapping fixed elements on mobile viewports."
+        },
+        {
+          "path": "frontend/src/pages/ProductDetail.tsx",
+          "operation": "modify",
+          "description": "Ensure all buttons (Add to Cart, Buy Now, bundle CTAs) meet the 44px minimum tap target size on mobile. Verify minimum px-4 horizontal padding on mobile. Check that the sticky MobileCartBar, COD Available tag, and other fixed elements do not overlap incorrectly."
+        },
+        {
+          "path": "frontend/src/pages/Shop.tsx",
+          "operation": "modify",
+          "description": "Ensure all filter buttons, sort dropdown, and category pills have minimum 44px tap targets on mobile. Verify minimum px-4 horizontal padding on mobile and that all text is legible at mobile sizes."
+        }
+      ]
+    }
+  ]
+}

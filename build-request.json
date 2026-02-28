@@ -1,0 +1,315 @@
+{
+  "kind": "build_request",
+  "title": "Premium Brand Redesign — Synklix Professional Store Overhaul",
+  "projectName": "Synklix Store",
+  "priority": "high",
+  "requirements": [
+    {
+      "id": "REQ-60",
+      "text": "Update the HeroBanner component headline to 'Smart Finds for Smarter Living' and subheadline to 'Premium Trending Products at Affordable Prices'. Keep existing CTA buttons ('Shop Now' filled #4DA6FF, 'Explore Deals' outlined), trust micro-badges (Pan India Delivery, Secure Payments, Easy Returns), Poppins font, and #4DA6FF / #111111 color scheme unchanged.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-3"
+        ],
+        "quotes": [
+          "A full-width hero banner with headline: \"Smart Finds for Smarter Living\"\nSubheadline: \"Premium Trending Products at Affordable Prices\""
+        ]
+      },
+      "acceptanceCriteria": [
+        "HeroBanner displays headline 'Smart Finds for Smarter Living'",
+        "HeroBanner displays subheadline 'Premium Trending Products at Affordable Prices'",
+        "CTA buttons, trust badges, and color scheme are unchanged"
+      ]
+    },
+    {
+      "id": "REQ-61",
+      "text": "Update the AnnouncementBar to display '🎁 Get ₹100 OFF on Prepaid Orders – Use Code: PAY100'. Keep the existing #4DA6FF background, white bold text, slim py-2 layout, and dismiss button.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-3"
+        ],
+        "quotes": [
+          "Sticky top announcement bar showing: \"Get ₹100 OFF on Prepaid Orders – Use Code: PAY100\""
+        ]
+      },
+      "acceptanceCriteria": [
+        "AnnouncementBar displays '🎁 Get ₹100 OFF on Prepaid Orders – Use Code: PAY100'",
+        "#4DA6FF background and white bold text retained",
+        "Dismiss button still functional"
+      ]
+    },
+    {
+      "id": "REQ-62",
+      "text": "Update the FeatureStrip trust icon section to display four pillars: Pan India Delivery (map/location icon), Secure Checkout (lock icon), Cash on Delivery Available (cash/wallet icon), and 7-Day Replacement Guarantee (refresh/shield icon). Each pillar has a large #4DA6FF icon, bold label, and a one-line descriptor. Maintain the existing #F8F8F8 background and horizontal row layout (2x2 on mobile).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-3"
+        ],
+        "quotes": [
+          "Below hero section add icon-based trust strip:\nPan India Delivery\nSecure Checkout\nCash on Delivery Available\n7-Day Replacement Guarantee"
+        ]
+      },
+      "acceptanceCriteria": [
+        "FeatureStrip shows exactly four pillars: Pan India Delivery, Secure Checkout, Cash on Delivery Available, 7-Day Replacement Guarantee",
+        "Each pillar has a #4DA6FF icon, bold title, and one-line descriptor",
+        "#F8F8F8 background maintained, 2x2 grid on mobile"
+      ]
+    },
+    {
+      "id": "REQ-63",
+      "text": "Add a 'New Arrivals' product section on the homepage, positioned after the Featured Products section. Display 4 products from the existing mock products data in a 4-column desktop / 2-column mobile grid using the existing ProductCard component. Include a section heading 'New Arrivals' with a subtitle. Add a 'View All' link to /shop.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-3"
+        ],
+        "quotes": [
+          "Add professionally spaced sections:\nNew Arrivals"
+        ]
+      },
+      "acceptanceCriteria": [
+        "New Arrivals section appears on the homepage after Featured Products",
+        "Displays 4 mock products using ProductCard",
+        "4-column desktop / 2-column mobile grid layout",
+        "Section heading and View All link to /shop present"
+      ]
+    },
+    {
+      "id": "REQ-64",
+      "text": "Add a 'Trending Now' product section on the homepage, positioned after the New Arrivals section. Display 4 products from the existing mock products data (different selection from New Arrivals) using ProductCard in a 4-column desktop / 2-column mobile grid. Include a section heading 'Trending Now' with a subtitle and a 'View All' link to /shop.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-3"
+        ],
+        "quotes": [
+          "Add professionally spaced sections:\nTrending Now"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Trending Now section appears after New Arrivals on the homepage",
+        "Displays 4 different mock products using ProductCard",
+        "4-column desktop / 2-column mobile grid layout",
+        "Section heading, subtitle, and View All link present"
+      ]
+    },
+    {
+      "id": "REQ-65",
+      "text": "Add a bundle offer section on the Product Detail page (below the Add to Cart / Buy Now buttons, above the Combo Offer section). Display two bundle tiers as visually distinct cards or rows: 'Buy 2 & Get 10% OFF' and 'Buy 3 & Get 20% OFF'. Each tier shows the original per-unit price, the discounted total, and a CTA button ('Add 2 to Cart' / 'Add 3 to Cart') that adds the respective quantity of the current product to the cart. Use #4DA6FF accents and rounded-xl cards.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-3"
+        ],
+        "quotes": [
+          "Add bundle offers:\nBuy 2 Get 10% OFF\nBuy 3 Get 20% OFF"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Bundle section appears on Product Detail page below Buy Now button",
+        "Two tiers shown: Buy 2 Get 10% OFF and Buy 3 Get 20% OFF",
+        "Each tier shows discounted price calculation",
+        "CTA buttons add correct quantity to cart",
+        "Uses #4DA6FF accents and rounded-xl cards"
+      ]
+    },
+    {
+      "id": "REQ-66",
+      "text": "Add a prepaid conversion popup that triggers when a user adds a COD item to the cart or after 10 seconds on the Product Detail page (if not already dismissed this session). The popup headline is 'Complete Payment Online & Get Extra ₹100 OFF 🎁'. Include subtext: 'Prepaid orders get faster dispatch, free shipping, and an instant ₹100 discount. Pay online and save more!' with two CTAs: 'Pay Online & Save' (filled #4DA6FF, links to /shop) and 'Continue with COD' (text link to dismiss). Show only once per session using sessionStorage.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-3"
+        ],
+        "quotes": [
+          "Add popup:\n\"Complete Payment Online & Get Extra ₹100 OFF\""
+        ]
+      },
+      "acceptanceCriteria": [
+        "Popup appears on Product Detail page after 10 seconds or on cart add action if not dismissed",
+        "Headline reads 'Complete Payment Online & Get Extra ₹100 OFF 🎁'",
+        "Two CTAs present: Pay Online & Save and Continue with COD",
+        "Shown only once per session via sessionStorage",
+        "Dismissible with Continue with COD link"
+      ]
+    },
+    {
+      "id": "REQ-67",
+      "text": "Add checkout nudge messages on the Product Detail page below the bundle offer section and in the CartDrawer below the RTO reduction message. Display three nudge lines: '⚡ Prepaid Orders Get Faster Delivery', '🚫 Avoid COD Verification Delay – Pay Online', '✅ Instant Order Confirmation with Online Payment'. Style as a compact info block with a light blue (#E8F4FF) background, small Poppins text, and #4DA6FF icon accents.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-3"
+        ],
+        "quotes": [
+          "Add checkout nudges:\n\"Prepaid Orders Get Faster Delivery\"\n\"Avoid COD Verification Delay – Pay Online\"\n\"Instant Order Confirmation with Online Payment\""
+        ]
+      },
+      "acceptanceCriteria": [
+        "Three checkout nudge lines displayed on Product Detail page",
+        "Same nudges shown in CartDrawer",
+        "Light blue (#E8F4FF) background with #4DA6FF accents",
+        "Text is legible and compact using Poppins font"
+      ]
+    },
+    {
+      "id": "REQ-68",
+      "text": "Perform a comprehensive premium brand redesign across all pages and components to eliminate any template or AI-generated appearance. Apply the following improvements without changing the existing color palette (#FFFFFF, #111111, #4DA6FF, Poppins): (1) Increase section vertical padding to py-20 on desktop and py-12 on mobile for all homepage sections. (2) Apply consistent section heading typography: font-bold text-3xl md:text-4xl text-[#111111] with a short colored underline accent in #4DA6FF. (3) Ensure all product cards use rounded-xl, a subtle 1px border (#E5E5E5), white background, and a hover box-shadow of '0 8px 24px rgba(0,0,0,0.10)'. (4) Apply rounded-full to all primary CTA buttons. (5) Improve visual hierarchy by using font-semibold for product names, font-bold for prices, and text-sm text-gray-500 for descriptors. (6) Add generous padding (px-6 md:px-12 lg:px-20) to all page content containers for a non-cramped premium feel. (7) Audit and remove any lingering gradients, heavy drop shadows, or off-brand colors across all components. (8) Ensure all section headers have consistent left-alignment with a subtitle in text-gray-500 below.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-3"
+        ],
+        "quotes": [
+          "Redesign this ecommerce website for my brand Synklix into a premium, professional, high-converting Indian general store that looks like a branded retail website and not a typical dropshipping or AI-generated template.",
+          "Use a clean, modern layout with proper white space, aligned sections, soft card shadows, and consistent rounded corners. Use professional sans-serif typography with strong visual hierarchy for headings, product titles, and CTA buttons."
+        ]
+      },
+      "acceptanceCriteria": [
+        "All homepage sections have py-20 desktop / py-12 mobile padding",
+        "Section headings use bold 3xl-4xl typography with #4DA6FF underline accent",
+        "All product cards have rounded-xl, subtle border, white background, and hover shadow",
+        "All primary CTA buttons use rounded-full",
+        "No gradients or off-brand colors visible anywhere",
+        "Page containers have generous horizontal padding (px-6 md:px-12 lg:px-20)",
+        "Section headers are left-aligned with gray subtitle below"
+      ]
+    },
+    {
+      "id": "REQ-69",
+      "text": "Update Home.tsx to include the complete homepage section order: AnnouncementBar, HeroBanner, FeatureStrip, PrepaidStrategySection, FeaturedProducts, NewArrivals, WhyChooseSynklix, TrendingNow, LimitedTimeOffer, BestSellers, Testimonials, TrustBadges, PrepaidBanner, Newsletter. Ensure all sections are imported and rendered in this exact order. Remove any duplicate or out-of-order sections.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-3"
+        ],
+        "quotes": [
+          "Add professionally spaced sections:\nWhy Shop From Synklix\nFeatured Products\nNew Arrivals\nTrending Now\nCustomer Testimonials\nSecure Payment Icons\nIndia-Wide Delivery Badge"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Home.tsx renders all sections in the specified order",
+        "No sections are missing or duplicated",
+        "All imports are present and correctly referenced",
+        "Page renders without errors"
+      ]
+    },
+    {
+      "id": "REQ-70",
+      "text": "Add a 'Secure Payment Icons' row and an 'India-Wide Delivery Badge' element to the homepage footer area above the Newsletter section. The Secure Payment Icons row should display placeholder icons for UPI, Visa, Mastercard, PayPal, and Net Banking in a horizontal row with label 'We Accept'. The India-Wide Delivery Badge should show a map pin icon with text 'Delivering Across All 28 States & 8 UTs in India' styled with a #4DA6FF accent. These can be grouped in a single compact full-width band with #F8F8F8 background.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-3"
+        ],
+        "quotes": [
+          "Secure Payment Icons\nIndia-Wide Delivery Badge"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Secure Payment Icons row shows UPI, Visa, Mastercard, PayPal, Net Banking icons with 'We Accept' label",
+        "India-Wide Delivery Badge shows map pin icon and delivery text",
+        "Both elements grouped in a compact full-width #F8F8F8 band on the homepage",
+        "Positioned above the Newsletter section"
+      ]
+    },
+    {
+      "id": "REQ-71",
+      "text": "On the Product Detail page, update the prepaid benefit box below the price to display: 'Pay Online & Get ₹100 OFF + Free Shipping 🎁'. Style with a soft blue (#E8F4FF) background, a #4DA6FF left border (4px), bold headline, and the four prepaid benefit lines: '✔ ₹100 Instant Discount', '✔ Free Shipping', '✔ Priority Dispatch', '✔ 10% Extra OFF on UPI/Cards'. Keep the existing PrepaidBenefitsBox component pattern.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-3"
+        ],
+        "quotes": [
+          "Add prepaid benefit box below price:\n\"Pay Online & Get ₹100 OFF + Free Shipping\""
+        ]
+      },
+      "acceptanceCriteria": [
+        "Prepaid benefit box shows 'Pay Online & Get ₹100 OFF + Free Shipping 🎁' as headline",
+        "Four benefit lines with green checkmarks shown",
+        "Soft blue background with #4DA6FF left border styling applied",
+        "Positioned below the product price on Product Detail page"
+      ]
+    },
+    {
+      "id": "REQ-72",
+      "text": "On the Product Detail page, update the COD confirmation note to display: '⚠️ COD orders may require a confirmation call before dispatch. Prepaid orders are dispatched within 24–48 hours without any delay.' Style this as a compact warning block with a pale yellow (#FFFBEB) background, rounded-lg border, and small Poppins text. This should appear below the delivery time widget.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-3"
+        ],
+        "quotes": [
+          "Add COD confirmation note:\n\"COD orders may require confirmation before dispatch\""
+        ]
+      },
+      "acceptanceCriteria": [
+        "COD confirmation note shows the specified warning text",
+        "Styled with pale yellow background (#FFFBEB), rounded-lg border",
+        "Positioned below the delivery time widget on Product Detail page",
+        "⚠️ icon present"
+      ]
+    },
+    {
+      "id": "REQ-73",
+      "text": "Update the Footer component to visually reinforce the Synklix brand: ensure the Policies column contains links to all six pages — Return Policy (/return-policy), Privacy Policy (/privacy-policy), Terms & Conditions (/terms-and-conditions), Shipping Policy (/shipping-policy), Refund Policy (/refund-policy), and About Us (/about). Add Contact Us (/contact) prominently in the Quick Links column. Maintain the existing dark (#111111) background, white text, social icons, newsletter signup, and payment icon row.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-3"
+        ],
+        "quotes": [
+          "Footer must include:\nAbout Us\nContact Us\nShipping Policy\nPrivacy Policy\nTerms & Conditions\nRefund Policy"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Footer Policies column contains all six policy links",
+        "Contact Us present in Quick Links column",
+        "All links navigate to correct routes",
+        "Dark #111111 background and white text maintained",
+        "Newsletter signup, social icons, and payment icon row intact"
+      ]
+    },
+    {
+      "id": "REQ-74",
+      "text": "Apply mobile-first optimization across all pages: (1) Ensure all tap targets (buttons, links, nav items) are at minimum 44px height/width. (2) Ensure horizontal padding on mobile is at least px-4 on all sections. (3) Verify the sticky MobileCartBar does not overlap the floating COD Available tag, sticky Prepaid Banner, or any other fixed elements — add appropriate bottom padding/z-index stacking. (4) Ensure all text is legible at mobile viewport sizes (minimum text-sm for body copy). (5) Verify the hamburger menu drawer works correctly and all navigation links are accessible.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-3"
+        ],
+        "quotes": [
+          "Optimize entire store for:\nMobile responsiveness"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All tap targets are at least 44px on mobile",
+        "All sections have minimum px-4 horizontal padding on mobile",
+        "No UI elements overlap incorrectly on mobile viewports",
+        "Body text is legible at mobile sizes",
+        "Hamburger menu opens/closes correctly and all nav links work"
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not change the existing color palette: #FFFFFF background, #111111 text, #4DA6FF accent, Poppins font",
+    "Do not edit any files under frontend/src/hooks/ or frontend/src/components/ui/",
+    "Do not alter the backend — all changes are frontend only",
+    "Do not break existing cart functionality, routing, or session state"
+  ],
+  "nonGoals": [
+    "Changing brand colors or introducing new accent colors",
+    "Adding real payment gateway integration",
+    "Adding backend persistence or database",
+    "Real-time inventory management",
+    "User authentication or account management"
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}
